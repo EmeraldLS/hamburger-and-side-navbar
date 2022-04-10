@@ -1,0 +1,88 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#hamburgerCheckbox{
+    top: 150px;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+[hamburger-showcase]{
+    position: absolute;
+    right: 0;    
+    margin: 30px 10px;
+}
+
+[hamburger]{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;    
+}
+
+[hamburger] span{
+    transition: all 0.4s linear;
+    transition-delay: 0.2s;
+    width: 30px;
+    height: 5px;
+    background: #211f24;
+}
+
+[hamburger].hasChecked span{
+    background: #fff;
+}
+[hamburger].hasChecked span:nth-child(2){
+    background: #fde908;
+    transform: translateX(-10px);
+}
+
+[hamburger].hasChecked span:first-child{
+    transform: translateY(-3px);
+}
+
+[hamburger].hasChecked span:last-child{
+    transform: translateY(3px);
+}
+
+[side-nav]{
+    width: 0%;
+    opacity: 0;
+    visibility: hidden;
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    background: #211f24;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+[side-nav] ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #fff;
+}
+
+[side-nav] ul li a{
+    font-size: 20px;
+    color: #fde908;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+[side-nav].show{
+    width: 30%;
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width:550px){
+    [side-nav].show{
+        width: 100%;
+    }
+}
